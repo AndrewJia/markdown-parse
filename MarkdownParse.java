@@ -16,11 +16,16 @@ public class MarkdownParse {
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
 
+            //if missing a bracket or parenthesis, not a valid link
             if(nextOpenBracket == -1 || nextCloseBracket == -1 ||
                 openParen == -1 || closeParen == -1) break;
 
+            //if brackets are not next to parenthesis, is not a link
             if(nextCloseBracket + 1 == openParen) {
-                toReturn.add(markdown.substring(openParen + 1, closeParen));
+                //if there is a '!' before the open bracket, is an image not a link
+                if(nextOpenBracket == 0 || markdown.charAt(nextOpenBracket-1) != '!') {
+                    toReturn.add(markdown.substring(openParen + 1, closeParen));
+                }
             }
 
             currentIndex = closeParen + 1;
