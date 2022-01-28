@@ -52,7 +52,7 @@ public class MarkdownParseTest {
     public void getLinksTestFile6() throws IOException {
         Path fileName = Path.of("C:/Users/andre/OneDrive/Documents/GitHub/markdown-parse/test-file6.md");
         String contents = Files.readString(fileName);
-        assertEquals(List.of("page.com"), MarkdownParse.getLinks(contents));
+        assertEquals(List.of(), MarkdownParse.getLinks(contents));
     }
 
     @Test
@@ -66,6 +66,6 @@ public class MarkdownParseTest {
     public void getLinksTestFile8() throws IOException {
         Path fileName = Path.of("C:/Users/andre/OneDrive/Documents/GitHub/markdown-parse/test-file8.md");
         String contents = Files.readString(fileName);
-        assertEquals(List.of(), MarkdownParse.getLinks(contents));
+        assertEquals(List.of("a link on the first line"), MarkdownParse.getLinks(contents));
     }
 }
