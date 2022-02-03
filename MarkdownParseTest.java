@@ -8,12 +8,6 @@ import java.util.List;
 import org.junit.*;
 
 
-/**
- * 
-          javac -cp ".;lib\junit-4.13.2.jar;lib\hamcrest-core-1.3.jar" MarkdownParseTest.java MarkdownParse.java
-          java -cp ".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore MarkdownParseTest
-
- */
 public class MarkdownParseTest {
     @Test
     public void addition() {
@@ -74,5 +68,10 @@ public class MarkdownParseTest {
         Path fileName = Path.of("test-file8.md");
         String contents = Files.readString(fileName);
         assertEquals(List.of("a link on the first line"), MarkdownParse.getLinks(contents));
+    }
+
+    @Test 
+    public void testThatFails() {
+        assertEquals(2+2, 5);
     }
 }
